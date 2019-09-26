@@ -24,6 +24,19 @@ public class MultiplicacaoMain {
 		Naming.rebind("rmi://localhost:1099/MultiplicacaoMatriz", calc);
 
 		System.out.println("\n\tAguardando requisições...");
+//		
+//		MultiplicacaoMatriz matriz = new MultiplicacaoMatriz();
+//		long[] matA = new long[2];
+//		matA[0] = 1;
+//		matA[1] = 2;
+//		
+//		long[][] matB = new long[2][2];
+//		matB[0][0] = 1;
+//		matB[0][1] = 2;
+//		matB[1][0] = 3;
+//		matB[1][1] = 4;
+//		
+//		matriz.multiplicacaoMatriz(matA, matB);
 		
 		} catch (RemoteException | MalformedURLException e) {
 			System.err.print("\n\tErro: " + e.getMessage());
