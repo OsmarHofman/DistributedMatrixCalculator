@@ -5,8 +5,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import br.edu.ifsc.calculadoramatriz.carregamatrizes.CarregaMatriz;
-import br.edu.ifsc.calculadoramatriz.interfaces.ICalculadoraClient;
+import br.edu.ifsc.calculadoramatriz.interfaces.IMultiplicacaoMatriz;
 
 public class CalculadoraClient {
 
@@ -19,7 +18,7 @@ public class CalculadoraClient {
 		CarregaMatriz ca = new CarregaMatriz();
 		// Carregando matriz A
 		String caminhoA = "src/matA.txt";
-		long[][] matA = ca.carregarMatriz(lin, col, caminhoA);
+		long[][] matA = ca.carregarMatriz(lin,col, caminhoA);
 		
 		//Carregando matriz B
 		String caminhoB = "src/matB.txt";
@@ -32,24 +31,23 @@ public class CalculadoraClient {
 			
 	
 		try {
-			ICalculadoraClient calcPc1;
+			IMultiplicacaoMatriz calcPc1;
 			
 			// Registra o gerenciador de seguranÃ§a
-			System.out.println("\n\tRegistrando o gerenciador de segurança..");
+			System.out.println("\n\tRegistrando o gerenciador de seguranca..");
 			System.setSecurityManager(new SecurityManager());
 
-			calcPc1 = (ICalculadoraClient) Naming.lookup("rmi://localhost:1099/MultiplicacaoMatriz");
+			calcPc1 = (IMultiplicacaoMatriz) Naming.lookup("rmi://10.151.33.134:1099/MultiplicacaoMatriz");
 			
-		    long[][] resultado = calcPc1.multiplicacaoMatriz(result, matB);
+		    long[] resultado = calcPc1.multiplicacaoMatriz(result, matB);
 		    
 		    for (int i = 0; i < resultado.length; i++) {
-				for (int j = 0; j < resultado.length; j++) {
-					System.out.println(resultado[i][j]);
-				}
+					System.out.println(resultado[i]);
+				
 			}
 
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			System.err.print("\n\tErro: " + e.getMessage());
+			System.err.print("\n\tErro ao tentar conectar: " + e.getMessage());
 			System.exit(1);
 		}
 
