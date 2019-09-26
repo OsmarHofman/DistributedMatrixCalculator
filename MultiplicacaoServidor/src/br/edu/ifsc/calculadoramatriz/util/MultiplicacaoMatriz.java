@@ -21,14 +21,13 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 	@Override
 	public long[] multiplicacaoMatriz(long[] linhaMatrizA, long[][] matrizB) {
 		int linECol = matrizB.length;
-		long[] matC = new long[linECol];
+		long[]matC = new long[linECol];
 		// realiza multiplicação das matrizes
 		System.out.println("Multiplicando as matrizes...");
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < linECol; i++) {
 			for (int j = 0; j < linECol; j++) {
-				matC[i] += (linhaMatrizA[i] * matrizB[i][j]);
-
+				matC[i] += (linhaMatrizA[i] * matrizB[j][i]);
 			}
 
 		}
@@ -46,7 +45,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 		gravaResultado(linECol, matC);
 
 		// Gera o MD5
-		System.out.println("\n\tGerando o MD5 da matriz C");
+		System.out.println("\n\tGerando o MD5 da matriz C...");
 		geraMD5();
 
 		return matC;
