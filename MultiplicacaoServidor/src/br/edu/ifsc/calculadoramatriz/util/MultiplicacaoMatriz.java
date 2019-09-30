@@ -13,21 +13,20 @@ import br.edu.ifsc.calculadoramatriz.interfaces.IMultiplicacaoMatriz;
 public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultiplicacaoMatriz {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public MultiplicacaoMatriz() throws RemoteException {
 	}
-
 
 	@Override
 	public long[] multiplicacaoMatriz(long[] linhaMatrizA, long[][] matrizB) {
 		int linECol = matrizB.length;
-		long[]matC = new long[linECol];
+		long[] matC = new long[linECol];
 		// realiza multiplicação das matrizes
 		System.out.println("Multiplicando as matrizes...");
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < linECol; i++) {
 			for (int j = 0; j < linECol; j++) {
-				matC[i] += (linhaMatrizA[i] * matrizB[j][i]);
+				matC[i] += (linhaMatrizA[j] * matrizB[j][i]);
 			}
 
 		}
@@ -74,8 +73,8 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 		}
 		return sb.toString();
 	}
-	
-	private void gravaResultado(int linECol,long[] matC) {
+
+	private void gravaResultado(int linECol, long[] matC) {
 		try {
 			File fOut = new File("src/matC.txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(fOut));
@@ -94,7 +93,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 			System.exit(1);
 		}
 	}
-	
+
 	private void geraMD5() {
 		try {
 			File matCFile = new File("src/matC.txt");
