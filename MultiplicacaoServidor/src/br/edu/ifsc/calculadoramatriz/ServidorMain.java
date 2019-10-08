@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 
 import br.edu.ifsc.calculadoramatriz.util.MultiplicacaoMatriz;
 
-public class MultiplicacaoMain {
+public class ServidorMain {
 
 	public static void main(String[] args) {
 		System.out.println("\nIniciando servidor MultiplicacaoMatriz...");

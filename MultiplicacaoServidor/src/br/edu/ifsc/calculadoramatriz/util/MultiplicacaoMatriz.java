@@ -18,19 +18,22 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 	}
 
 	@Override
-	public long[] multiplicacaoMatriz(long[] linhaMatrizA, long[][] matrizB) {
-		int linECol = matrizB.length;
-		long[] matC = new long[linECol];
+	public long[][] multiplicacaoMatriz(long[][] linhaMatrizA, long[][] matrizB) throws RemoteException{
+		System.out.println("Calculando matriz");
+		long[][] matC = new long[1][4];
 		// realiza multiplicação das matrizes
 		System.out.println("Multiplicando as matrizes...");
 		long startTime = System.currentTimeMillis();
-		for (int i = 0; i < linECol; i++) {
-			for (int j = 0; j < linECol; j++) {
-				matC[i] += (linhaMatrizA[j] * matrizB[j][i]);
+		for (int i = 0; i < linhaMatrizA.length; i++) {
+			for (int j = 0; j < matrizB.length; j++) {
+				for (int k = 0; k < matrizB.length; k++) {
+					matC[i][j] += linhaMatrizA[i][k] * matrizB[k][j];
+				}
 			}
-
 		}
 
+		System.out.println("Finalizando C�lculo");
+		/*
 		long stopTime = System.currentTimeMillis();
 
 		long result = stopTime - startTime;
@@ -38,17 +41,11 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 		System.out.println("\n\tTempo de execução: " + result + "ms");
 		System.out.println("\n\tTempo de execução: " + (result / 1000) + "segundos");
 		System.out.println("\n\tTempo de execução: " + (result / 1000) / 60 + "minutos");
-
-		// grava um arquivo com a matriz C
-		System.out.println("\nGravando matriz C....");
-		gravaResultado(linECol, matC);
-
-		// Gera o MD5
-		System.out.println("\n\tGerando o MD5 da matriz C...");
-		geraMD5();
-
+         */
+		
 		return matC;
 	}
+	
 
 	private static byte[] getFileBytes(File file) {
 		int len = (int) file.length();
@@ -74,7 +71,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 		return sb.toString();
 	}
 
-	private void gravaResultado(int linECol, long[] matC) {
+	private void gravaResultado(int linECol, long[][] matC) {
 		try {
 			File fOut = new File("src/matC.txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(fOut));
