@@ -1,6 +1,7 @@
 package br.edu.ifsc.calculadoramatriz;
 
 import br.edu.ifsc.calculadoramatriz.util.ConexaoServidor;
+import br.edu.ifsc.calculadoramatriz.util.MD5;
 import br.edu.ifsc.calculadoramatriz.util.ManipulacaoMatriz;
 
 public class ClientMain {
@@ -16,6 +17,7 @@ public class ClientMain {
 		int l = 4, c = 4;
 		ManipulacaoMatriz manipula = new ManipulacaoMatriz(l,c);
 		ConexaoServidor con = new ConexaoServidor();
+		MD5 md = new MD5();
 		
 		System.out.println("\nIniciando cliente da CalculadoraRemota...");
 
@@ -68,6 +70,10 @@ public class ClientMain {
 		
 		System.out.println("Gravando matriz C em um arquivo txt");
 		manipula.gerarMatriz("src/matC.txt", matC);
+		
+		
+		System.out.println("Gerando MD5...");
+	    md.geraMD5();
 		
 	}
 

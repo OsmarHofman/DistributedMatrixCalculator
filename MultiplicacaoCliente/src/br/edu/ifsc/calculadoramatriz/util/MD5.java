@@ -32,29 +32,9 @@ public class MD5 {
 		}
 		return sb.toString();
 	}
-
-	private void gravaResultado(int linECol, long[][] matC) {
-		try {
-			File fOut = new File("src/matC.txt");
-			BufferedWriter writer = new BufferedWriter(new FileWriter(fOut));
-			for (int i = 0; i < linECol; i++) {
-				writer.write(String.valueOf(matC[i]));
-				if (!((i == linECol - 1))) {
-					writer.newLine();
-				}
-
-			}
-			writer.flush();
-			writer.close();
-
-		} catch (Exception e) {
-			System.err.println("\n\tErro ao gravar a Matriz C no Arquivo: " + e.getMessage());
-			System.exit(1);
-		}
-	}
-
 	
-	private void geraMD5() {
+	
+	public void geraMD5() {
 		try {
 			File matCFile = new File("src/matC.txt");
 			int matCSize = (int) matCFile.length();
