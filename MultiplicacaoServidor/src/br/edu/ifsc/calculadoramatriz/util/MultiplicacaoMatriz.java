@@ -15,7 +15,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 	@Override
 	public long[][] multiplicacaoMatriz(long[][] linhaMatrizA, long[][] matrizB) throws RemoteException{
 		System.out.println("Calculando matriz");
-		long[][] matC = new long[1][4];
+		long[][] matC = new long[1024][4096];
 		// realiza multiplicação das matrizes
 		System.out.println("Multiplicando as matrizes...");
 		long startTime = System.currentTimeMillis();
