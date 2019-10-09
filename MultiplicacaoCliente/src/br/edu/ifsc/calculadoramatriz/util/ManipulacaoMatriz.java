@@ -8,17 +8,19 @@ import java.io.FileWriter;
 
 public class ManipulacaoMatriz {
 	
-	private int lin = 4; 
-	private int col = 4;
+	private int lin; 
+	private int col;
 	private long[][] matriz;
 	private long[][] matrizDiv;
 	
-	public ManipulacaoMatriz() {
+	public ManipulacaoMatriz(int lin, int col) {
+		this.lin = lin;
+		this.col = col;
 	}
 
 	public long[][] carregarMatriz(String caminho) {
 		int l, c;
-		matriz = new long[lin][col];
+		matriz = new long[this.lin][this.col];
 
 		try {
 			FileReader file = new FileReader(caminho);

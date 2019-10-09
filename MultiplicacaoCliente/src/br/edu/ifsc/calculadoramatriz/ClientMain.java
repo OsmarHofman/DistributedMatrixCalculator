@@ -13,8 +13,8 @@ public class ClientMain {
 	private static long[][] matC = new long[l][c];
 	
 	public static void main(String[] args) {
-		
-		ManipulacaoMatriz manipula = new ManipulacaoMatriz();
+		int l = 4, c = 4;
+		ManipulacaoMatriz manipula = new ManipulacaoMatriz(l,c);
 		ConexaoServidor con = new ConexaoServidor();
 		
 		System.out.println("\nIniciando cliente da CalculadoraRemota...");
@@ -37,9 +37,7 @@ public class ClientMain {
 	    //long[][] parte4 = manipula.separarMatriz(matA, 3,3);
 	    
 		System.out.println("\nEnviando parte 1...");
-		parte1 = con.conectar("localhost", parte1, matB);
-		System.out.println("Parte 1: "+parte1[0][0]);
-		
+	    con.conectar("localhost", parte1, matB,1);		
 		//parte1 = con.conectar("10.151.33.80", parte1, matB);
 		
 		//System.out.println("\nEnviando parte 2...");
@@ -58,10 +56,12 @@ public class ClientMain {
 		
 		System.out.println("Aguandando resultados...");
 		
-		/*while(con.getProcessos().size()!=0) {
+		while(con.getProcessos().size()!=0) {
 			System.out.println("Esperando...");
-		}*/
+		}
 
+		parte1 = con.getParte1();
+		
 		System.out.println("Unindo as partes multiplicadas...");
 		
 		matC = manipula.unirPartes(parte1, parte2, parte3, parte4);
