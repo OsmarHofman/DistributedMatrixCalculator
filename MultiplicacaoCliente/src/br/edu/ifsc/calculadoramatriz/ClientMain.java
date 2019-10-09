@@ -14,6 +14,7 @@ public class ClientMain {
 	private static long[][] matC = new long[l][c];
 	
 	public static void main(String[] args) {
+		
 		int l = 4, c = 4;
 		ManipulacaoMatriz manipula = new ManipulacaoMatriz(l,c);
 		ConexaoServidor con = new ConexaoServidor();

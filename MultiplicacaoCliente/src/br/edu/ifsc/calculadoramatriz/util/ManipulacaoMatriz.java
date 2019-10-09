@@ -61,28 +61,25 @@ public class ManipulacaoMatriz {
 	}
 	
 	public long[][] unirPartes(long[][]parte1, long[][]parte2, long[][]parte3, long[][]parte4){
-		int l2=0, c2=0;
+		/*int l2=0, c2=0;
 		int l3=0, c3=0;
-		int l4=0, c4=0;
+		int l4=0, c4=0;*/
 		long[][] matriz = new long[4][4];
 		for (int l = 0; l < 4; l++) {
 			for (int c = 0; c < 4 ; c++) {
 				if(l == 0) {
 					matriz[l][c] = parte1[l][c];
-					System.out.println("Parte1 "+parte1[l][c]);
-				}/*else if(l<=1) {
-					this.matriz[l][c] = parte2[l2][c2];
-					l2++;
-					c2++;
-				}else if(l <=2) {
-					this.matriz[l][c] = parte3[l3][c3];
-					l3++;
-					c3++;
-				}else if(l <=3) {
-					this.matriz[l][c] = parte4[l4][c4];
-					l4++;
-					c4++;
-				}*/
+				
+				}else if(l == 1) {
+					matriz[l][c] = parte2[l][c];
+		
+				}else if(l == 2) {
+					matriz[l][c] = parte3[l][c];
+					
+				}else if(l == 3) {
+					matriz[l][c] = parte4[l][c];
+				
+				}/**/
 			}
 		}
 		return matriz;
