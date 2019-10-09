@@ -63,7 +63,7 @@ public class ManipulacaoMatriz {
 		int l2 = 0, c2 = 0;
 		int l3 = 0, c3 = 0;
 		int l4 = 0, c4 = 0;
-		long[][] matriz = new long[4096][4096];
+		long[][] matriz = new long[this.lin][this.col];
 		for (int l = 0; l < 4096; l++) {
 			for (int c = 0; c < 4096; c++) {
 				if (l < 1024) {

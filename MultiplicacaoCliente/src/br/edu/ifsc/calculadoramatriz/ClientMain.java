@@ -41,10 +41,16 @@ public class ClientMain {
 	    long[][] parte4 = manipula.separarMatriz(matA, 3072, 4096);
 	    
 		System.out.println("\nEnviando parte 1...");
-	    con.conectar("localhost", parte1, matB, 1);		
-	    con.conectar("localhost", parte2, matB, 2);
-	    con.conectar("localhost", parte3, matB, 3);
-	    con.conectar("localhost", parte4, matB, 4);
+	    con.conectar("10.151.33.80", parte1, matB, 1);		
+	    
+	    System.out.println("\nEnviando parte 2...");
+	    con.conectar("10.151.33.112",  parte2, matB, 2);
+	    
+	    System.out.println("\nEnviando parte 3...");
+	    con.conectar("10.151.33.134", parte3, matB, 3);
+	    
+	    System.out.println("\nEnviando parte 4...");
+	    con.conectar("10.151.33.162", parte4, matB, 4);
 
 	    
 		//parte1 = con.conectar("10.151.33.80", parte1, matB);
