@@ -39,6 +39,9 @@ public class ClientMain {
 		long[][] parte3 = manipula.separarMatriz(matA, 2048, 3072);
 		long[][] parte4 = manipula.separarMatriz(matA, 3072, 4096);
 
+		// Tempo de c�lculo
+		long startTime = System.currentTimeMillis();
+
 		System.out.println("\nEnviando parte 1...");
 		con.conectar("10.151.33.80", parte1, matB, 1);
 
@@ -51,21 +54,6 @@ public class ClientMain {
 		System.out.println("\nEnviando parte 4...");
 		con.conectar("10.151.33.162", parte4, matB, 4);
 
-		// Tempo de c�lculo
-		long startTime = System.currentTimeMillis();
-
-		// parte1 = con.conectar("10.151.33.80", parte1, matB);
-
-		// System.out.println("\nEnviando parte 2...");
-		// parte2 = con.conectar("localhost", parte2, matB);
-		// parte2 = con.conectar("10.151.33.112", parte2, matB);
-
-		// System.out.println("\nEnviando parte 3...");
-		// parte3 = con.conectar("10.151.33.134", parte3, matB);
-
-		// System.out.println("\nEnviando parte 4...");
-		// parte4 = con.conectar("10.151.33.162", parte2, matB);
-
 		System.out.println("Aguandando resultados...");
 
 		while (con.getProcessos().size() != 0) {
@@ -74,7 +62,7 @@ public class ClientMain {
 
 		long stopTime = System.currentTimeMillis();
 
-		// Imprime o tempo de execu��o
+		// Imprime o tempo de execu��o
 		System.out.print("\n\tTempo de execução: " + (stopTime - startTime) + " ms");
 		System.out.print("\n\tTempo de execução: " + (stopTime - startTime) / 1000 + " segundos");
 		System.out.print("\n\tTempo de execução: " + ((stopTime - startTime) / 1000) / 60 + " minutos");

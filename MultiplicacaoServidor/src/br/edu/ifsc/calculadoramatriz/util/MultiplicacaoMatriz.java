@@ -13,7 +13,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 	}
 
 	@Override
-	public long[][] multiplicacaoMatriz(long[][] linhaMatrizA, long[][] matrizB) throws RemoteException{
+	public long[][] multiplicacaoMatriz(long[][] linhaMatrizA, long[][] matrizB) throws RemoteException {
 		System.out.println("Calculando matriz");
 		long[][] matC = new long[1024][4096];
 		// realiza multiplicação das matrizes
@@ -27,18 +27,9 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 			}
 		}
 
-		System.out.println("Finalizando C�lculo");
-		/*
-		long stopTime = System.currentTimeMillis();
+		System.out.println("Finalizando C�lculo");
 
-		long result = stopTime - startTime;
-		// imprime o tempo de execucao
-		System.out.println("\n\tTempo de execução: " + result + "ms");
-		System.out.println("\n\tTempo de execução: " + (result / 1000) + "segundos");
-		System.out.println("\n\tTempo de execução: " + (result / 1000) / 60 + "minutos");
-         */
-		
 		return matC;
 	}
-	
+
 }

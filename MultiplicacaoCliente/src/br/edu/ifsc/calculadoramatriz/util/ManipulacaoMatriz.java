@@ -91,7 +91,7 @@ public class ManipulacaoMatriz {
 						l4++;
 						c4 = 0;
 					}
-				} /**/
+				}
 			}
 		}
 		return matriz;
