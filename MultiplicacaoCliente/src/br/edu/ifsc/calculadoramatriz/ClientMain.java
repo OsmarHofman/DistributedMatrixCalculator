@@ -15,7 +15,6 @@ public class ClientMain {
 
 	public static void main(String[] args) {
 
-		int l = 4096, c = 4096;
 
 		ManipulacaoMatriz manipula = new ManipulacaoMatriz(l, c);
 		ConexaoServidor con = new ConexaoServidor();
@@ -39,7 +38,7 @@ public class ClientMain {
 		long[][] parte3 = manipula.separarMatriz(matA, 2048, 3072);
 		long[][] parte4 = manipula.separarMatriz(matA, 3072, 4096);
 
-		// Tempo de cï¿½lculo
+		// Tempo de cálculo
 		long startTime = System.currentTimeMillis();
 
 		System.out.println("\nEnviando parte 1...");
@@ -62,10 +61,10 @@ public class ClientMain {
 
 		long stopTime = System.currentTimeMillis();
 
-		// Imprime o tempo de execuï¿½ï¿½o
-		System.out.print("\n\tTempo de execuÃ§Ã£o: " + (stopTime - startTime) + " ms");
-		System.out.print("\n\tTempo de execuÃ§Ã£o: " + (stopTime - startTime) / 1000 + " segundos");
-		System.out.print("\n\tTempo de execuÃ§Ã£o: " + ((stopTime - startTime) / 1000) / 60 + " minutos");
+		// Imprime o tempo de execução
+		System.out.print("\n\tTempo de execução: " + (stopTime - startTime) + " ms");
+		System.out.print("\n\tTempo de execução: " + (stopTime - startTime) / 1000 + " segundos");
+		System.out.print("\n\tTempo de execução: " + ((stopTime - startTime) / 1000) / 60 + " minutos");
 
 		parte1 = con.getParte1();
 		parte2 = con.getParte2();

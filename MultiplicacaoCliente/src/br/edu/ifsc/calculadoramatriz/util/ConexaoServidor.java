@@ -28,8 +28,8 @@ public class ConexaoServidor {
 			@Override
 			public void run() {
 				try {
-					// Registra o gerenciador de seguranÃ§a
-					System.out.println("\n\tRegistrando o gerenciador de seguranca..");
+					// Registra o gerenciador de segurança
+					System.out.println("\n\tRegistrando o gerenciador de segurança..");
 
 					IMultiplicacaoMatriz calcPc1;
 					calcPc1 = (IMultiplicacaoMatriz) Naming.lookup("rmi://" + ip + ":1099/MultiplicacaoMatriz");
@@ -44,11 +44,6 @@ public class ConexaoServidor {
 					}
 
 					processos.remove(ip);
-
-					/*
-					 * for (int i = 0; i < matriz.length; i++) { for (int j = 0; j < matrizB.length;
-					 * j++) { System.out.println("Tá retornando"+matriz[i][j]); } }
-					 */
 
 				} catch (MalformedURLException | RemoteException | NotBoundException e) {
 					System.err.print("\n\tErro ao tentar conectar: " + e.getMessage());

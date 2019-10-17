@@ -39,7 +39,7 @@ public class ManipulacaoMatriz {
 			}
 			bufFile.close();
 		} catch (Exception e) {
-			System.err.print("\n\tErro no mÃ©todo carregarMatriz: " + e.getMessage());
+			System.err.print("\n\tErro no método carregarMatriz: " + e.getMessage());
 			System.exit(1);
 		}
 
