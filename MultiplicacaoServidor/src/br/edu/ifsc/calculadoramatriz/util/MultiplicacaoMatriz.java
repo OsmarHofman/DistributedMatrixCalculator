@@ -21,7 +21,7 @@ public class MultiplicacaoMatriz extends UnicastRemoteObject implements IMultipl
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < linhaMatrizA.length; i++) {
 			for (int j = 0; j < matrizB.length; j++) {
-				for (int k = 0; k < matrizB.length; k++) {
+				for (int k = 0; k < linhaMatrizA[1].length; k++) {
 					matC[i][j] += linhaMatrizA[i][k] * matrizB[k][j];
 				}
 			}
